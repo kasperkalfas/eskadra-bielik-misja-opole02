@@ -111,7 +111,7 @@ Przykładowy kod źródłowy pozwalający na:
    ```
 
 ### Przetestujmy Bielika używając promptów
-* Wygeneruj mi artykuł blogowy na długość 1000 znaków ze spacją o tym jak wygląda życie w Opolu.
+Wygeneruj mi artykuł blogowy na długość 1000 znaków ze spacją o tym jak wygląda życie w Opolu.
    ```bash
 curl "${OLLAMA_API_BASE}/api/generate" \
   -H "Content-Type: application/json" \
