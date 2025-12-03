@@ -122,6 +122,43 @@ curl "${OLLAMA_API_BASE}/api/generate" \
 }" | jq -r .response
    ```
 
+Wygeneruj mi dialog dwóch ludzi czekających w kolejce do lekarza w Opolu.
+
+```bash
+curl "${OLLAMA_API_BASE}/api/generate" \
+  -H "Content-Type: application/json" \
+  -d "{
+    \"model\": \"$BIELIK_MODEL_NAME\",
+    \"prompt\": \"Wygeneruj mi dialog dwóch ludzi czekających w kolejce do lekarza w Opolu.\",
+    \"stream\": false
+}" | jq -r .response
+```
+
+Czym jest NFZ i kiedy został utworzony?
+
+```bash
+curl "${OLLAMA_API_BASE}/api/generate" \
+  -H "Content-Type: application/json" \
+  -d "{
+    \"model\": \"$BIELIK_MODEL_NAME\",
+    \"prompt\": \"Czym jest NFZ i kiedy został utworzony?\",
+    \"stream\": false
+}" | jq -r .response
+```
+
+Z którego roku pochodzi obecna Konstytucja RP i kiedy została uchwalona? Dlaczego ta data jest symboliczna?
+
+```bash
+curl "${OLLAMA_API_BASE}/api/generate" \
+  -H "Content-Type: application/json" \
+  -d "{
+    \"model\": \"$BIELIK_MODEL_NAME\",
+    \"prompt\": \"Z którego roku pochodzi obecna Konstytucja RP i kiedy została uchwalona? Dlaczego ta data jest symboliczna?\",
+    \"stream\": false
+}" | jq -r .response
+```
+
+
 
 ## 3. Konfiguracja systemów agentowych ADK
 
