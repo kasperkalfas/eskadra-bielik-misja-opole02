@@ -32,14 +32,14 @@ Przykładowy kod źródłowy pozwalający na:
    mv .env.sample .env
    ```
 
-7. Zaktualizuj odpowiednie na tym etapie zmienne środowiskowe w pliku `.env` W menu "View" jest zaznaczona opcja "Toggle Hidden Files", co pozwala na wyświetlenie ukrytych plików systemowych w eksploratorze projektu.  
+7. Zaktualizuj odpowiednie na tym etapie zmienne środowiskowe w pliku `.env`  
       * `BIELIK_EVENT_ID`- Identyfikator warsztatów zgodny z kodem użytym w OnRamp Credits
       * `GOOGLE_CLOUD_LOCATION`- zmienną definiującą region Google Cloud
       * `BIELIK_SERVICE_NAME` - domyślną nazwę dla usługi gdzie uruchomimy Bielika
       * `BIELIK_MODEL_NAME` - wersję Bielika z której będziemy korzystać 
 
 >[!TIP]
->W terminalu `Cloud Shell` dostępny jest edytor po wybraniu opcji *Open Editor*
+>W terminalu `Cloud Shell` dostępny jest edytor po wybraniu opcji *Open Editor*. W menu "View" jest zaznaczona opcja "Toggle Hidden Files", co pozwala na wyświetlenie ukrytych plików systemowych w eksploratorze projektu. 
 
    ```bash
    BIELIK_EVENT_ID="bielik-op-02"
