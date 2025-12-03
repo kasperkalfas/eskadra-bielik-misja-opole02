@@ -194,8 +194,9 @@ curl "${OLLAMA_API_BASE}/api/generate"   -H "Content-Type: application/json"   -
     \"stream\": false
 }" | jq -r .response
 ```
-
-
+>[!TIP]
+>Przykład jak opowiada model Bielik.AI 11B
+![Przykład jak opowiada model 11B](image_2025-12-03_234546086.png)
 
 ## 3. Konfiguracja systemów agentowych ADK
 
