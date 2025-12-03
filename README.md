@@ -186,6 +186,14 @@ curl "${OLLAMA_API_BASE}/api/generate" \
     \"stream\": false
 }" | jq -r .response
 ```
+Podaj art.30  Konstytucja RP
+```bash
+curl "${OLLAMA_API_BASE}/api/generate"   -H "Content-Type: application/json"   -d "{
+    \"model\": \"$BIELIK_MODEL_NAME\",
+    \"prompt\": \"Podaj art.30  Konstytucji RP\",
+    \"stream\": false
+}" | jq -r .response
+```
 
 
 
