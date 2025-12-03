@@ -110,6 +110,18 @@ Przykładowy kod źródłowy pozwalający na:
    }"
    ```
 
+### Przetestujmy Bielika używając promptów
+*Wygeneruj mi artykuł blogowy na długość 1000 znaków ze spacją o tym jak wygląda życie w Opolu.
+
+   ```bash
+curl "${OLLAMA_API_BASE}/api/generate" \
+  -H "Content-Type: application/json" \
+  -d "{
+    \"model\": \"$BIELIK_MODEL_NAME\",
+    \"prompt\": \"Wygeneruj mi artykuł blogowy na długość 1000 znaków ze spacją o tym jak wygląda życie w Opolu.\",
+    \"stream\": false
+}" | jq -r .response
+   ```
 
 
 ## 3. Konfiguracja systemów agentowych ADK
