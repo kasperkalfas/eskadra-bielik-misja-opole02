@@ -12,12 +12,41 @@ Przykładowy kod źródłowy pozwalający na:
 ## 1. Przygotowanie projektu Google Cloud
 
 1. Uzyskaj kredyt Cloud **OnRamp**, lub skonfiguruj płatności w projekcie Google Cloud
+>[!TIP]
+>Możesz sprawdzić dostępność kredytów OnRamp wybierając z menu po lewej stronie: Billing / Credits
 
 2. Przejdź do **Google Cloud Console**: [console.cloud.google.com](https://console.cloud.google.com)
 
-3. Stwórz nowy projekt Google Cloud i wybierz go aby był aktywny
+3. Stwórz nowy projekt Google Cloud i wybierz go aby był aktywny.
+
 >[!TIP]
->Możesz sprawdzić dostępność kredytów OnRamp wybierając z menu po lewej stronie: Billing / Credits
+>Pokażę to krok po kroku w Cloud Shell / konsoli GCP.
+>#### 1. Utworzenie nowego projektu
+>1. Wejdź do konsoli: [Google Cloud Console](https://console.cloud.google.com/).
+>2. U góry, przy nazwie projektu, kliknij rozwijane menu i wybierz **New Project** / **Nowy projekt**.
+>3. Podaj:
+>   - nazwę projektu,
+>   - (opcjonalnie) organizację i folder,
+> 4. Kliknij **Create** / **Utwórz**.
+> 5. Po chwili projekt będzie widoczny w tym samym rozwijanym menu u góry.
+>Zapamiętaj **ID projektu** (np. `bielikshowopole02`) – będzie potrzebny w `gcloud`.
+>#### 2. Ustawienie projektu jako aktywny w Cloud Shell
+>W Cloud Shell wpisz:
+>```bash
+>gcloud config set project ID_TWOJEGO_NOWEGO_PROJEKTU
+>```
+>np.:
+>```bash
+>gcloud config set project bielikshowopole02
+>```
+>#### 3. Sprawdzenie, jaki projekt jest aktywny
+>```bash
+>gcloud config get-value project
+>```
+>Jeśli komenda zwróci `ID_TWOJEGO_NOWEGO_PROJEKTU`, to znaczy, że nowy projekt jest ustawiony jako aktywny.
+
+---
+
 
 4. Otwórz Cloud Shell ([dokumentacja](https://cloud.google.com/shell/docs))
 
@@ -114,11 +143,11 @@ Przykładowy kod źródłowy pozwalający na:
 Wygeneruj mi artykuł blogowy na długość 1000 znaków ze spacją o tym jak wygląda życie w Opolu.
    ```bash
 curl "${OLLAMA_API_BASE}/api/generate" \
-  -H "Content-Type: application/json" \
-  -d "{
-    \"model\": \"$BIELIK_MODEL_NAME\",
-    \"prompt\": \"Wygeneruj mi artykuł blogowy na długość 1000 znaków ze spacją o tym jak wygląda życie w Opolu.\",
-    \"stream\": false
+  -H "Content-Type: application/json" \
+  -d "{
+    \"model\": \"$BIELIK_MODEL_NAME\",
+    \"prompt\": \"Wygeneruj mi artykuł blogowy na długość 1000 znaków ze spacją o tym jak wygląda życie w Opolu.\",
+    \"stream\": false
 }" | jq -r .response
    ```
 
