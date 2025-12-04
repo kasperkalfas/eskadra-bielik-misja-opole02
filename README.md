@@ -196,7 +196,7 @@ curl "${OLLAMA_API_BASE}/api/generate"   -H "Content-Type: application/json"   -
 ```
 >[!TIP]
 >Przykład jak opowiada model Bielik.AI 11B
-![Przykład jak opowiada model 11B](image_2025-12-03_234546086.png)
+![Przykład jak opowiada model 11B](img/image_2025-12-03_234546086.png)
 
 ## 3. Konfiguracja systemów agentowych ADK
 
@@ -308,7 +308,45 @@ graph TD
     adk run culinary_guide_agent/
    ```
 
+### 4.3 System agentowy - Specjalista do reklamacji/zwrotów (`order_complaint`)
 
+Ten hybrydowy system agentowy, działający w oparciu o modele Gemini i Bielik, jest przykładem wykorzystania Agentów LLM ([LLM Agents](https://google.github.io/adk-docs/agents/llm-agents/)), funkcji-jako-narzędzi ([Function Tools](https://google.github.io/adk-docs/tools/function-tools/#function-tool)) oraz agentów-jako-narzędzi ([Agent-as-a-tTool](https://google.github.io/adk-docs/tools/function-tools/#agent-tool)) dostępnych w ADK.
+
+System ma na celu pełnienie specjalisty od polskiego prawa konsumenckiego, który deleguje zadania do wyspecjalizowanych pod-agentów lub narzędzi w zależności od tego, czy użytnikowi przysługuje prawo zwrotu, reklamacja, lub nie przysługuje żadne z nich.
+
+- `polish_consumer_law_agent` - Główny agent, który komunikuje się z użytkownikiem w języku polskim. Jego zadaniem jest zrozumienie prośby o pomoc w reklamacji/zwrocie towaru, a następnie delegowanie zadania do odpowiednich narzędzi.
+- `polish_complaints_law_expert_tool` - Narzędzie typu AgentTool, które opakowuje agenta polish_complaints_law_expert_agent, umożliwiając głównemu agentowi korzystanie z jego wyspecjalizowanych zdolności.
+- `polish_complaints_law_expert_agent` - Wyspecjalizowany Agent LLM oparty na modelu Bielik, ekspert w dziedzinie reklamacji. Przyjmuje zapytania i odpowiada wyłącznie w języku polskim.
+- `polish_return_policies_expert_tool` - Narzędzie typu AgentTool, które opakowuje agenta polish_return_policies_expert_agent, umożliwiając głównemu agentowi korzystanie z jego wyspecjalizowanych zdolności.
+- `polish_return_policies_expert_agent` - Wyspecjalizowany Agent LLM oparty na modelu Bielik, ekspert w dziedzinie polityk zwrotów. Przyjmuje zapytania i odpowiada wyłącznie w języku polskim.
+- `no_return_complain_possible_response` - Proste narzędzie oparte na funkcji Pythona, które zwraca użytkownikowi informację o braku możliwości zwrotu/reklamacji.
+
+```mermaid
+graph TD
+    subgraph Order Complaint System
+        direction TB
+
+        %% Define the Root Agent
+        A[fa:fa-robot polish_consumer_law_agent]
+
+        %% Define the Tools
+        B[fa:fa-wrench AgentTool polish_complaints_law_expert_tool] --> C[fa:fa-robot polish_complaints_law_expert_agent]
+        D[fa:fa-wrench AgentTool polish_return_policies_expert_tool] --> E[fa:fa-robot polish_return_policies_expert_agent]
+        F[fa:fa-wrench Python function no_return_complain_possible_response]
+
+        %% Define the relationships
+        A --> B
+        A --> D
+        A --> F
+    end
+```
+
+1. Upewnij się, że jesteś w katalogu `adk_agents` oraz że wszystkie zmienne środowiskowe są załadowane
+2. Uruchom agenta w konsoli **Cloud Shell** i rozpocznij interakcję
+
+   ```bash
+    adk run order_complaint_agent/
+   ```
 
 ## 5. Przetestuj systemy agentowe w środowisku Cloud Shell + Web
 
