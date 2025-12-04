@@ -35,10 +35,6 @@ Przykładowy kod źródłowy pozwalający na:
 >```bash
 >gcloud config set project ID_TWOJEGO_NOWEGO_PROJEKTU
 >```
->np.:
->```bash
->gcloud config set project bielikshowopole02
->```
 >#### 3. Sprawdzenie, jaki projekt jest aktywny
 >```bash
 >gcloud config get-value project
