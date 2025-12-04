@@ -368,3 +368,7 @@ graph TD
 
 2. Narzędzie `gcloud` stworzy kontener na podstawie konfiguracji zawartej w `adk-agents/Dockerfile` i uruchomi usługę w Cloud Run, podając URL pod którym serwis będzie dostępny
 3. Wywołaj otrzymany URL w przeglądarce WWW aby mieć dostęp do środowiska ADK Web
+
+## 7. Certyfikat uczestnictwa
+> [!NOTE]
+> Jeśli chciałbyś otrzymać certyfikat Eskadry Bielika potwierdzający udział w warsztatach, proszę wyślij do Kaspra – organizatora wydarzenia w Opolu – na adres cloudkasperpro@gmail.com zrzut ekranu przedstawiający obie uruchomione instancje Cloud Run oraz podaj swoje imię i nazwisko.
