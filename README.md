@@ -49,7 +49,7 @@ Przykładowy kod źródłowy pozwalający na:
 5. Sklonuj repozytorium z przykładowym kodem i przejdź do nowoutworzonego katalogu
    ```bash
    git clone https://github.com/kasperkalfas/eskadra-bielik-misja-opole02.git
-   cd eskadra-bielik-misja1
+   cd eskadra-bielik-misja-opole02
    ```
 
 6. Zmień nazwę pliku `.env.sample` na `.env`
